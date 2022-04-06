@@ -1,0 +1,49 @@
+@use "../abstracts/colors";
+@use '../abstracts/fonts';
+
+.headerWrapper {
+    background-color: colors.$primary;
+    color: white;
+    padding: 1rem 2vw;
+    position: fixed;
+    width: 100%;
+}
+header {
+    display: flex;
+    align-items: center;
+    max-width: 72rem;
+    margin: auto;
+
+    h1 { font-family: fonts.$title; font-weight: 800;}
+}
+nav { 
+    margin-left: auto;
+    button {
+        background: none;
+        border: none;
+
+        &.open {
+            rect:nth-child(1) {
+                transform: rotate(45deg);
+                transform-origin: center;
+            }
+        }
+    }
+    img {
+        height: 2rem;
+    }
+    ul { 
+        display: none; 
+        list-style-type: none;
+        
+    }
+
+    @media screen and (min-width: 35rem) {
+        button { display: none; }
+        ul { 
+            display: flex; 
+            gap: 1rem;
+            align-items: center;
+        }
+    }
+}

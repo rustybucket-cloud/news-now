@@ -1,0 +1,68 @@
+@use "../abstracts/colors";
+
+.card {
+    figure {
+        width: 100%;
+        img {
+            border-radius: 8px 8px 0 0;
+        }
+    }
+
+    border: 2px solid black;
+    border-radius: 10px;
+    &__body {
+        display: grid;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    &__expanded {
+        position: fixed;
+        inset: 0 0 0 0;
+        padding: 2rem;
+        background-color: rgba(0, 0, 0, .7);
+        overflow-y: scroll;
+        &__container {
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: colors.$primary;
+            max-width: 72rem;
+
+            figure {
+                width: 100%;
+                img {
+                  width: 100%;
+                  height: auto;
+                  border-radius: 10px 10px 0 0;
+                }
+            }
+        }
+    }
+}
+#closeCard {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 3px;
+    border: none;
+    background-color: colors.$primary;
+    color: white;
+    transform: translate(1rem, 1rem);
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover { background-color: lighten(colors.$primary, 10%); }
+}
+.to-article {
+    display: block;
+    background-color: gray;
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+    max-width: 10rem;
+    text-align: center;
+    border-radius: 5px;
+    &:hover { background-color: lighten(gray, 10%); }
+}
