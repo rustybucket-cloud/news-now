@@ -1,8 +1,12 @@
 const HTMLWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
+require('dotenv').config()
+
+
+const mode = process.env.ENVIRONMENT === "development" ? "development" : "production"
 
 module.exports = {
-    mode: "development",
+    mode: mode,
     entry: "./src/scripts/index.ts",
     output: {
         filename: 'main.js',
