@@ -212,12 +212,12 @@ header, main, footer {
   width: 100%;
 }
 
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 840px) {
   .stories {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@media screen and (min-width: 72rem) {
+@media screen and (min-width: 1200px) {
   .stories {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
