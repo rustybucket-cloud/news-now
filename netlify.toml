@@ -1,0 +1,14 @@
+[build]
+  publish="public/"
+  functions="netlify/functions"
+  command="npm run build"
+
+[dev]
+  base="/"
+  publish="public/"
+  functions="netlify/functions"
+  command="npm run dev"
+
+[[redirects]]
+  from="/articles"
+  to="/.netlify/functions/articles"
