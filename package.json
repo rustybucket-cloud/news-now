@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "start": "webpack serve",
-    "dev": "concurrently \"npm run sass\" \"npm run build\" \"npm run start\"",
+    "dev": "concurrently \"npm run sass\" \"npm run watch\" \"npm run start\"",
     "build": "webpack"
   },
   "author": "",

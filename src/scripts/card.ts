@@ -1,3 +1,5 @@
+import { createElement } from "./support"
+
 class Card {
     img: string | null
     title: string | null
@@ -18,20 +20,33 @@ class Card {
     }
 
     createCard() {
-        const html = `
+        /*
+        <div class="card">
             <figure>
-                <img src="${this.img}" alt="bitcoin">
+                <img src=img>
             </figure>
-            <div class="card-body">
-                <h3>${this.title}</h3>
-                <p>Source: ${this.source}</p>
-                <p>Author: ${this.author || 'See article'}</p>
+            <div>
+                <h3>title</h3>
+                <p>source</p>
+                <p>author</p>
             </div>
-        `
-        const card = document.createElement('div')
-        card.classList.add('card')
-        card.innerHTML = html
+        </div>
+        */
+
+        const card = createElement({elementType: 'div', classes: ['card']})
+
+        const img = createElement({elementType: 'img', attributes: [{name: 'src', value: `${this.img}`}]})
+        img.setAttribute('src', this.img)
+        const figure = document.createElement('figure')
+        figure.append(img)
     
+        const div = createElement({elementType: 'div', classes:['card__body']})
+        const title = createElement({elementType: 'h3', text: `${this.title}`})
+        const source = createElement({elementType: 'p', text: `${this.source}`})
+        const author = createElement({elementType: 'p', text: `${this.author || 'See article'}`})
+        div.append(title, source, author)
+        card.append(figure, div)
+
         document.querySelector('.stories')?.append(card)
         card.addEventListener('click', () => this.expandCard())
     }
